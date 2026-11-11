@@ -1,0 +1,244 @@
+
+:root {
+  --red: #b72f2f;
+  --red-hover: #c93a3a;
+  --card: rgba(112, 88, 82, 0.78);
+  --cream: #f4ece4;
+  --ink: #1a1210;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Cambriana", Georgia, serif;
+  color: var(--cream);
+  background: #9c9484;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("bg.webp") center / cover no-repeat;
+  filter: blur(5px);
+  transform: scale(1.05);
+  z-index: -1;
+}
+
+
+.card {
+  width: 390px;
+  height: 460px;
+  max-width: 100%;
+  background: var(--card);
+  border-radius: 18px;
+  padding: 40px 26px 32px;
+  backdrop-filter: blur(2px);
+  box-sizing: border-box;
+  position: relative;
+}
+
+h1 {
+  font-family: "Alfa Slab One", Georgia, serif;
+  font-weight: 400;
+  font-size: 2.2rem;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+
+form {
+  display: grid;
+  gap: 14px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+
+.field {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.field span {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: .85rem;
+  color: var(--cream);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 1;
+  transition: all .2s ease;
+  text-shadow: 0 0 3px rgba(0,0,0,.35);
+}
+
+
+input {
+  width: 100%;
+  max-width: 100%;
+  height: 45px;
+  font: inherit;
+  color: #fff;
+  background: var(--red);
+  border: 1px solid var(--ink);
+  border-radius: 12px;
+  padding: 0 12px;
+  outline: none;
+  transition: background .15s, box-shadow .15s;
+}
+
+input:hover {
+  background: var(--red-hover);
+}
+
+input:focus-visible {
+  box-shadow: 0 0 0 3px rgba(255,255,255,.7);
+}
+
+.field:focus-within span,
+.field:has(input:not(:placeholder-shown)) span {
+  top: -15px;
+  left: 6px;
+  transform: translateY(0);
+  opacity: 1;
+  font-size: .85rem;
+}
+
+
+button {
+  height: 40px;
+  margin-top: 6px;
+  font: inherit;
+  font-size: .9rem;
+  color: var(--cream);
+  background: var(--red);
+  border: 1px solid var(--ink);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background .15s, transform .1s;
+}
+
+button:hover {
+  background: var(--red-hover);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(255,255,255,.7);
+  outline-offset: 2px;
+}
+
+
+.switch {
+  position: absolute;
+  bottom: 32px;
+  left: 26px;
+  right: 26px;
+  width: auto;
+
+  text-align: center;
+  font-size: .95rem;
+  margin: 0;
+}
+
+.switch a {
+  font-family: "Alfa Slab One", Georgia, serif;
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-left: 2px;
+}
+
+.switch a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+
+.field input[type="password"],
+.field input[name="password"],
+.field input[name="confirm"] {
+  padding-right: 38px;
+}
+
+.eye {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 26px;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  color: var(--cream);
+}
+
+.eye:hover {
+  background: rgba(0,0,0,.2);
+}
+
+.eye:active {
+  transform: translateY(-50%);
+}
+
+.eye svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.eye .on {
+  display: none;
+}
+
+.eye[aria-pressed="true"] .on {
+  display: block;
+}
+
+.eye[aria-pressed="true"] .off {
+  display: none;
+}
+
+.error {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-top: -5px;
+    margin-bottom: 1px;
+    text-align: left;
+}
+
